@@ -1,0 +1,17 @@
+{
+	"i18n": true,
+	"type": "panel",
+	"items": {
+		"option1": {
+			"type": "number",
+			"label": "MQTT Port",
+			"min": 1883,
+			"newLine": true
+		},
+		"option2": {
+			"type": "checkbox",
+			"label": "Start with DB-persistence",
+			"newLine": true
+		}
+	}
+}
