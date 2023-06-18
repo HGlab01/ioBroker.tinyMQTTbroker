@@ -37,19 +37,19 @@ class Tinymqttbroker extends utils.Adapter {
 		})
 		// emitted when a client connects to the broker
 		this.aedes.on('client', (client) => {
-			this.log.info(`MQTT-broker says: Client connected : MQTT Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
+			this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
 		})
 		// emitted when a client disconnects from the broker
 		this.aedes.on('clientDisconnect', (client) => {
-			this.log.info(`MQTT-broker says: Client disconnected : MQTT Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
+			this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
 		})
 		// emitted when a client subscribes to a message topic
 		this.aedes.on('subscribe', (subscriptions, client) => {
-			this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic: ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
+			this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
 		})
 		// emitted when a client unsubscribes from a message topic
 		this.aedes.on('unsubscribe', (subscriptions, client) => {
-			this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed to topic: ${subscriptions.join(',')} from aedes broker ${this.aedes.id}`);
+			this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
 		})
 	}
 
@@ -60,6 +60,7 @@ class Tinymqttbroker extends utils.Adapter {
 		try {
 			this.aedes.close();
 			this.server.close();
+			this.log.info(`MQTT-broker says: I (${this.aedes.id}) stopped my service. See you soon!`);
 			callback();
 		} catch (e) {
 			callback();
