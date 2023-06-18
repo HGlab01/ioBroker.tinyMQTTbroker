@@ -35,13 +35,19 @@ class Tinymqttbroker extends utils.Adapter {
   async onReady() {
     const port = this.config.option1;
     this.server.listen(port, () => {
-      this.log.info("MQTT broker says: Server " + this.aedes.id + " started and listening on port " + port);
+      this.log.info("MQTT-broker says: Server " + this.aedes.id + " started and listening on port " + port);
     });
     this.aedes.on("client", (client) => {
-      this.log.info(`MQTT broker says: Client connected : MQTT Client ${client ? client.id : client} connected to aedes broker ${this.aedes.id}`);
+      this.log.info(`MQTT-broker says: Client connected : MQTT Client ${client ? client.id : client} connected to broker ${this.aedes.id}`);
     });
     this.aedes.on("clientDisconnect", (client) => {
-      this.log.info(`MQTT broker says: Client disconnected : MQTT Client ${client ? client.id : client} disconnected from the aedes broker ${this.aedes.id}`);
+      this.log.info(`MQTT-broker says: Client disconnected : MQTT Client ${client ? client.id : client} disconnected from the broker ${this.aedes.id}`);
+    });
+    this.aedes.on("subscribe", (subscriptions, client) => {
+      this.log.info(`MQTT-broker says: Client ${client ? client.id : client} subscribed to topic: ${subscriptions.map((s) => s.topic).join(",")} on broker ${this.aedes.id}`);
+    });
+    this.aedes.on("unsubscribe", (subscriptions, client) => {
+      this.log.info(`MQTT-broker says: Client ${client ? client.id : client} unsubscribed to topic: ${subscriptions.join(",")} from aedes broker ${this.aedes.id}`);
     });
   }
   onUnload(callback) {
