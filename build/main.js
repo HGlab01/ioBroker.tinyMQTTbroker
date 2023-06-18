@@ -27,17 +27,13 @@ class Tinymqttbroker extends utils.Adapter {
       name: "tinymqttbroker"
     });
     this.on("ready", this.onReady.bind(this));
-    this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
     this.aedes = new import_aedes.default();
     this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
     this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
   }
   async onReady() {
-    this.log.info("config option1: " + this.config.option1);
-    this.log.info("config option2: " + this.config.option2);
     const port = this.config.option1;
-    this.log.info(port + "aaaa");
     this.server.listen(port, () => {
       this.log.info("MQTT broker says: Server " + this.aedes.id + " started and listening on port " + port);
     });
@@ -47,25 +43,6 @@ class Tinymqttbroker extends utils.Adapter {
     this.aedes.on("clientDisconnect", (client) => {
       this.log.info(`MQTT broker says: Client disconnected : MQTT Client ${client ? client.id : client} disconnected from the aedes broker ${this.aedes.id}`);
     });
-    await this.setObjectNotExistsAsync("testVariable", {
-      type: "state",
-      common: {
-        name: "testVariable",
-        type: "boolean",
-        role: "indicator",
-        read: true,
-        write: true
-      },
-      native: {}
-    });
-    this.subscribeStates("testVariable");
-    await this.setStateAsync("testVariable", true);
-    await this.setStateAsync("testVariable", { val: true, ack: true });
-    await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
-    let result = await this.checkPasswordAsync("admin", "iobroker");
-    this.log.info("check user admin pw iobroker: " + result);
-    result = await this.checkGroupAsync("admin", "admin");
-    this.log.info("check group user admin group admin: " + result);
   }
   onUnload(callback) {
     try {
