@@ -32,6 +32,7 @@ class Tinymqttbroker extends utils.Adapter {
   async onReady() {
     this.serverPort = this.config.option1;
     this.withDB = this.config.option2;
+    this.log.info("Start with DB: " + this.withDB);
     if (this.withDB) {
       const NedbPersistence = require("aedes-persistence-nedb");
       const db = new NedbPersistence({ path: `${utils.getAbsoluteInstanceDataDir(this)}/mqttData`, prefix: "" });

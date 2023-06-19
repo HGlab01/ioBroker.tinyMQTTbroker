@@ -34,6 +34,8 @@ class Tinymqttbroker extends utils.Adapter {
 		this.serverPort = this.config.option1;
 		this.withDB = this.config.option2;
 
+		this.log.info('Start with DB: ' + this.withDB);
+
 		if (this.withDB) {
 			// eslint-disable-next-line @typescript-eslint/no-var-requires
 			const NedbPersistence = require('aedes-persistence-nedb');
