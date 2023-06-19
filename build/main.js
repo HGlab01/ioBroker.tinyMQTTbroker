@@ -28,14 +28,21 @@ class Tinymqttbroker extends utils.Adapter {
     });
     this.on("ready", this.onReady.bind(this));
     this.on("unload", this.onUnload.bind(this));
-    this.aedes = new import_aedes.default();
-    this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
-    this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
   }
   async onReady() {
-    const port = this.config.option1;
-    this.server.listen(port, () => {
-      this.log.info("MQTT-broker says: Server " + this.aedes.id + " started and listening on port " + port);
+    this.serverPort = this.config.option1;
+    this.withDB = this.config.option2;
+    if (this.withDB) {
+      const NedbPersistence = require("aedes-persistence-nedb");
+      const db = new NedbPersistence({ path: `${utils.getAbsoluteInstanceDataDir(this)}/mqttData`, prefix: "" });
+      this.aedes = new import_aedes.default({ persistence: db });
+    } else {
+      this.aedes = new import_aedes.default();
+    }
+    this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
+    this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
+    this.server.listen(this.serverPort, () => {
+      this.log.info("MQTT-broker says: Server " + this.aedes.id + " started and listening on port " + this.serverPort);
     });
     this.aedes.on("client", (client) => {
       this.log.info(`MQTT-broker says: Client ${client ? client.id : client} connected to broker ${this.aedes.id}`);
