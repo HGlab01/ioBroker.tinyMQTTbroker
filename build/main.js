@@ -35,7 +35,7 @@ class Tinymqttbroker extends utils.Adapter {
     this.log.info("Start with DB: " + this.withDB);
     if (this.withDB) {
       const NedbPersistence = require("aedes-persistence-nedb");
-      const db = new NedbPersistence({ path: `${utils.getAbsoluteInstanceDataDir(this)}/mqttData`, prefix: "" });
+      const db = new NedbPersistence({ path: `./mqttData`, prefix: "" });
       this.aedes = new import_aedes.default({ persistence: db });
     } else {
       this.aedes = new import_aedes.default();

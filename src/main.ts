@@ -39,7 +39,7 @@ class Tinymqttbroker extends utils.Adapter {
 		if (this.withDB) {
 			// eslint-disable-next-line @typescript-eslint/no-var-requires
 			const NedbPersistence = require('aedes-persistence-nedb');
-			const db = new NedbPersistence({ path: `${utils.getAbsoluteInstanceDataDir(this)}/mqttData`, prefix: '' });
+			const db = new NedbPersistence({ path: `./mqttData`, prefix: '' });
 			this.aedes = new Aedes({ persistence: db });
 		}
 		else {
