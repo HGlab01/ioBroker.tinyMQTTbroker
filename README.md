@@ -23,7 +23,7 @@ This section is intended for the developer. It can be deleted later.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.3-alpha.2 (2023-06-23)
+### 0.0.3-alpha.3 (2023-06-23)
 * (HGlab01) first release
 
 ## License
