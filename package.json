@@ -1,6 +1,6 @@
 {
   "name": "iobroker.tinymqttbroker",
-  "version": "0.0.3-alpha.1",
+  "version": "0.0.3-alpha.3",
   "description": "tinymqttbroker",
   "author": {
     "name": "HGlab01",
@@ -24,7 +24,6 @@
   "dependencies": {
     "@iobroker/adapter-core": "^2.6.8",
     "aedes": "^0.49.0",
-    "aedes-persistence-nedb": "^2.0.3",
     "aedes-server-factory": "^0.2.1"
   },
   "devDependencies": {

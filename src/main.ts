@@ -11,8 +11,6 @@ import { createServer } from 'aedes-server-factory';
 class Tinymqttbroker extends utils.Adapter {
 	aedes!: Aedes;
 	server!: any;
-	withDB!: boolean;
-	serverPort!: number;
 
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
@@ -30,27 +28,14 @@ class Tinymqttbroker extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	private async onReady(): Promise<void> {
+		const serverPort: number = this.config.option1;
 
-		this.serverPort = this.config.option1;
-		this.withDB = this.config.option2;
-
-		this.log.info('Start with DB: ' + this.withDB);
-
-		if (this.withDB) {
-			// eslint-disable-next-line @typescript-eslint/no-var-requires
-			const NedbPersistence = require('aedes-persistence-nedb');
-			const db = new NedbPersistence({ path: `./mqttData`, prefix: '' });
-			this.aedes = new Aedes({ persistence: db });
-		}
-		else {
-			this.aedes = new Aedes();
-		}
-
+		this.aedes = new Aedes();
 		this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
 		this.server = createServer(this.aedes);
 
-		this.server.listen(this.serverPort, () => {
-			this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + this.serverPort);
+		this.server.listen(serverPort, () => {
+			this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
 		})
 		// emitted when a client connects to the broker
 		this.aedes.on('client', (client) => {

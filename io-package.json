@@ -1,8 +1,34 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.3-alpha.1",
+    "version": "0.0.3-alpha.3",
     "news": {
+      "0.0.3-alpha.3": {
+        "en": "first release",
+        "de": "erste veröffentlichung",
+        "ru": "первый релиз",
+        "pt": "primeiro lançamento",
+        "nl": "eerste vrijlating",
+        "fr": "première version",
+        "it": "primo rilascio",
+        "es": "primera liberación",
+        "pl": "pierwsze wydanie",
+        "uk": "перший реліз",
+        "zh-cn": "首次释放"
+      },
+      "0.0.3-alpha.2": {
+        "en": "first release",
+        "de": "erste veröffentlichung",
+        "ru": "первый релиз",
+        "pt": "primeiro lançamento",
+        "nl": "eerste vrijlating",
+        "fr": "première version",
+        "it": "primo rilascio",
+        "es": "primera liberación",
+        "pl": "pierwsze wydanie",
+        "uk": "перший реліз",
+        "zh-cn": "首次释放"
+      },
       "0.0.3-alpha.1": {
         "en": "initial release",
         "de": "erstausstrahlung",
@@ -104,8 +130,7 @@
     ]
   },
   "native": {
-    "option1": 1884,
-    "option2": false
+    "option1": 1884
   },
   "objects": [],
   "instanceObjects": []
