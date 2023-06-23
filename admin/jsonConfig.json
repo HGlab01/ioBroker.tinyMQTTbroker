@@ -7,11 +7,6 @@
 			"label": "MQTT Port",
 			"min": 1883,
 			"newLine": true
-		},
-		"option2": {
-			"type": "checkbox",
-			"label": "Start with DB-persistence",
-			"newLine": true
 		}
 	}
 }
