@@ -1,5 +1,7 @@
 {
-	"tinymqttbroker adapter settings": "Adaptereinstellungen für tinymqttbroker",
-	"option1": "Option 1",
-	"option2": "Option 2"
+    "tinymqttbroker adapter settings": "Adaptereinstellungen für tinymqttbroker",
+    "option1": "Option 1",
+    "option2": "Option 2",
+    "common.titleLang": "Winziger MQTT-Broker",
+    "common.desc": "Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen. Sehr hilfreich, um mehrere Geräte mit einem Broker kommunizieren zu lassen und auf iobroker mit einem MQTT-Client-Javascript zu interagieren."
 }

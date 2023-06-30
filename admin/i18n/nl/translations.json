@@ -1,5 +1,7 @@
 {
-	"tinymqttbroker adapter settings": "Adapterinstellingen voor tinymqttbroker",
-	"option1": "Optie 1",
-	"option2": "Optie 2"
+    "tinymqttbroker adapter settings": "Adapterinstellingen voor tinymqttbroker",
+    "option1": "Optie 1",
+    "option2": "Optie 2",
+    "common.titleLang": "Kleine MQTT-makelaar",
+    "common.desc": "Dit is een zeer kleine MQTT-makelaar die geen objecten/statussen in iobroker beheert, maar een centrale MQTT-makelaar-instantie biedt om onderwerpen voor abonneren als MQTT-client te publiceren. Zeer handig om meerdere apparaten met één makelaar te laten praten en te laten communiceren op iobroker met een MQTT-client javascript."
 }
