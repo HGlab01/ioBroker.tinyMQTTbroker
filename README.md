@@ -12,10 +12,55 @@
 
 ## tinymqttbroker adapter for ioBroker
 
-Describe your project here
+This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. Very helpful to let several devices to talk with one broker and interact on iobroker with a MQTT client javascript.
 
-## Developer manual
-This section is intended for the developer. It can be deleted later.
+A MQTT client could look like
+```
+const mqtt = require('mqtt');
+const protocol = 'mqtt';
+const host = 'localhost';
+const portClient = 1883;
+
+const clientId = `iobroker_mqtt_client_` + Math.floor(Math.random() * 100000 + 100000);
+const connectUrl = ``${protocol}://${host}:${portClient}``;
+const client = mqtt.connect(connectUrl, {
+    clientId,
+    clean: true,
+    connectTimeout: 4000,
+    reconnectPeriod: 10000
+})
+
+const topics = ['topic1', 'topic2', 'topic3];
+client.on('connect', () => {
+    client.subscribe(topics, () => {
+        console.log(`MQTT client says: Connected and subscribe to topics '${topics}'`)
+    })
+})
+
+client.on('message', (topic: string, payload) => {
+    payload = payload.toString();
+    // deal as you need with topics and payload herelet stopic = topic.split('/'); switch could be helpful
+    switch (topic) {
+        case 'topic1':
+            //your code
+            break;
+        case 'topic2':
+            //your code
+            break;
+})
+```
+
+For publishing message I use on ioBroker state listening for any changes and pushing it to the broker.
+The state expects a JSON with 'topic' and 'message'.
+```
+on({ id: stateMqttIn, change: 'any' }, function (obj) {
+    let input: any = obj.state.val;
+    let topic: string = input.topic;
+    let message: string = String(input.message);
+    if (topic && message) client.publish(topic, message);
+    else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
+});
+```
 
 
 ## Changelog
