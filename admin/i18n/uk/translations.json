@@ -1,5 +1,7 @@
 {
-	"tinymqttbroker adapter settings": "Adapter settings for tinymqttbroker",
-	"option1": "option1",
-	"option2": "option2"
+    "tinymqttbroker adapter settings": "Adapter settings for tinymqttbroker",
+    "option1": "option1",
+    "option2": "option2",
+    "common.titleLang": "Крихітний брокер MQTT",
+    "common.desc": "Це дуже маленький брокер MQTT, який не керує жодними об’єктами/станами в iobroker, але пропонує центральний екземпляр брокера MQTT для публікації тем для підписки як клієнт MQTT. Дуже корисно дозволити кільком пристроям спілкуватися з одним брокером і взаємодіяти на iobroker за допомогою JavaScript клієнта MQTT."
 }
