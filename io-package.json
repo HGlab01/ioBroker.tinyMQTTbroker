@@ -122,10 +122,8 @@
       "HGlab01 <iobroker.followthesun@gmail.com>"
     ],
     "keywords": [
-      "ioBroker",
-      "template",
-      "Smart Home",
-      "home automation"
+      "mqtt",
+      "broker"
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
