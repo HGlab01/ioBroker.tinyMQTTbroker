@@ -74,7 +74,7 @@ onStop(async function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.3 (2023-06-23)
+### 0.0.4 (2023-06-30)
 * (HGlab01) first release
 
 ## License
