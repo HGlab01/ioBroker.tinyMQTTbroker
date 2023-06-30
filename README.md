@@ -22,7 +22,7 @@ const host = 'localhost';
 const portClient = 1883;
 
 const clientId = `iobroker_mqtt_client_` + Math.floor(Math.random() * 100000 + 100000);
-const connectUrl = ``${protocol}://${host}:${portClient}``;
+const connectUrl = `${protocol}://${host}:${portClient}`;
 const client = mqtt.connect(connectUrl, {
     clientId,
     clean: true,
