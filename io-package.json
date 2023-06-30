@@ -94,7 +94,6 @@
         "zh-cn": "首次出版"
       }
     },
-    "title": "Tiny MQTT broker",
     "titleLang": {
       "en": "Tiny MQTT broker",
       "de": "Winziger MQTT-Broker",
@@ -123,10 +122,8 @@
       "HGlab01 <iobroker.followthesun@gmail.com>"
     ],
     "keywords": [
-      "ioBroker",
-      "template",
-      "Smart Home",
-      "home automation"
+      "mqtt",
+      "broker"
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
