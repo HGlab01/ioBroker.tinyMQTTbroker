@@ -19,7 +19,7 @@ A MQTT client could look like
 const mqtt = require('mqtt');
 const protocol = 'mqtt';
 const host = 'localhost';
-const portClient = 1883;
+const portClient = 1884;
 
 const clientId = `iobroker_mqtt_client_` + Math.floor(Math.random() * 100000 + 100000);
 const connectUrl = `${protocol}://${host}:${portClient}`;
@@ -39,7 +39,8 @@ client.on('connect', () => {
 
 client.on('message', (topic: string, payload) => {
     payload = payload.toString();
-    // deal as you need with topics and payload herelet stopic = topic.split('/'); switch could be helpful
+    // deal as you need with topics and payload here
+    // 'switch' could be helpful
     switch (topic) {
         case 'topic1':
             //your code
@@ -50,7 +51,7 @@ client.on('message', (topic: string, payload) => {
 })
 ```
 
-For publishing message I use on ioBroker state listening for any changes and pushing it to the broker.
+For publishing message I use one ioBroker state listening for any changes and pushing it to the broker.
 The state expects a JSON with 'topic' and 'message'.
 ```
 on({ id: stateMqttIn, change: 'any' }, function (obj) {
