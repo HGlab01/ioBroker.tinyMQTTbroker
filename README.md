@@ -64,9 +64,14 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
 ```
 IMPORTANT! If you create your own MQTT client in a ioBroker javascript, do not forget to close the client in the scipt by using
 ```
-onStop(async function (callback) {
-    log('Mqtt Client will be closed...');
-    client.end();
+onStop(function (callback) {
+    log('MQTT Client will be closed...');
+    client.end(() => {
+        if (callback) {
+            callback();
+            log('MQTT Client closed');
+        }
+    }
 }, 2000 /*ms*/);
 ```
 
