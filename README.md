@@ -71,7 +71,7 @@ onStop(function (callback) {
             callback();
             log('MQTT Client closed');
         }
-    }
+    })
 }, 2000 /*ms*/);
 ```
 
