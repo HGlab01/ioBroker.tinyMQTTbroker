@@ -80,7 +80,7 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.4 (2023-06-30)
+### **WORK IN PROGRESS**
 * (HGlab01) first release
 
 ## License
