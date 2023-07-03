@@ -5,7 +5,7 @@
 		"option1": {
 			"type": "number",
 			"label": "MQTT Port",
-			"min": 1883,
+			"min": 1880,
 			"newLine": true
 		}
 	}
