@@ -75,7 +75,12 @@
       {
         "admin": ">=5.1.13"
       }
-    ]
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://71478020128d4e93a60767063f8d6759@sentry.iobroker.net/236"
+      }
+    }
   },
   "native": {
     "option1": 1884
