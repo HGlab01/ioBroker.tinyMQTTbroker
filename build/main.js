@@ -49,7 +49,6 @@ class Tinymqttbroker extends utils.Adapter {
     this.aedes.on("unsubscribe", (subscriptions, client) => {
       this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} unsubscribed from topic(s): ${subscriptions.join(",")} on broker ${this.aedes.id}`);
     });
-    this.sendSentry("hu hu");
   }
   onUnload(callback) {
     try {
