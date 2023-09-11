@@ -49,6 +49,7 @@ class Tinymqttbroker extends utils.Adapter {
     this.aedes.on("unsubscribe", (subscriptions, client) => {
       this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} unsubscribed from topic(s): ${subscriptions.join(",")} on broker ${this.aedes.id}`);
     });
+    this.sendSentry("hu hu");
   }
   onUnload(callback) {
     try {
@@ -65,6 +66,18 @@ class Tinymqttbroker extends utils.Adapter {
       this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
     } else {
       this.log.info(`state ${id} deleted`);
+    }
+  }
+  sendSentry(errorObject) {
+    try {
+      if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
+        const sentryInstance = this.getPluginInstance("sentry");
+        if (sentryInstance) {
+          sentryInstance.getSentryObject().captureException(errorObject);
+        }
+      }
+    } catch (error) {
+      this.log.error(`Error in function sendSentry(): ${error}`);
     }
   }
 }
