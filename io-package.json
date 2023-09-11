@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.5-alpha.0",
+    "version": "0.0.5-alpha.1",
     "news": {
+      "0.0.5-alpha.1": {
+        "en": "first release",
+        "de": "erste veröffentlichung",
+        "ru": "первый релиз",
+        "pt": "primeiro lançamento",
+        "nl": "eerste vrijlating",
+        "fr": "première version",
+        "it": "primo rilascio",
+        "es": "primera liberación",
+        "pl": "pierwsze wydanie",
+        "uk": "перший реліз",
+        "zh-cn": "首次释放"
+      },
       "0.0.5-alpha.0": {
         "en": "first release",
         "de": "erste veröffentlichung",
@@ -75,7 +88,12 @@
       {
         "admin": ">=5.1.13"
       }
-    ]
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://71478020128d4e93a60767063f8d6759@sentry.iobroker.net/236"
+      }
+    }
   },
   "native": {
     "option1": 1884

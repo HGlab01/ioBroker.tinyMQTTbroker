@@ -81,6 +81,19 @@ class Tinymqttbroker extends utils.Adapter {
 			this.log.info(`state ${id} deleted`);
 		}
 	}
+
+	sendSentry(errorObject:any):void {
+		try {
+			if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
+				const sentryInstance = this.getPluginInstance('sentry');
+				if (sentryInstance) {
+					sentryInstance.getSentryObject().captureException(errorObject);
+				}
+			}
+		} catch (error) {
+			this.log.error(`Error in function sendSentry(): ${error}`);
+		}
+	}
 }
 
 if (require.main !== module) {
