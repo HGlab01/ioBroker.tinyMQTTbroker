@@ -82,7 +82,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.5-alpha.1 (2023-09-11)
+### 0.0.5 (2023-09-11)
+* (HGlab01) add sentry support
+
+### 0.0.4(2023-06-30)
 * (HGlab01) first release
 
 ## License

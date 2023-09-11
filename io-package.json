@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.5-alpha.1",
+    "version": "0.0.5",
     "news": {
+      "0.0.5": {
+        "en": "add sentry support",
+        "de": "unterstützung für den versand",
+        "ru": "добавить службу поддержки",
+        "pt": "adicionar suporte de sentinela",
+        "nl": "voeg sentiment",
+        "fr": "add sentry support",
+        "it": "aggiungere supporto per la spedizione",
+        "es": "add centry support",
+        "pl": "wsparcie",
+        "uk": "додання відправлень",
+        "zh-cn": "增 发"
+      },
       "0.0.5-alpha.1": {
         "en": "first release",
         "de": "erste veröffentlichung",
