@@ -14,6 +14,8 @@
 
 This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. Very helpful to let several devices to talk with one broker and interact on iobroker with a MQTT client javascript.
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+
 A MQTT client could look like
 ```
 const mqtt = require('mqtt');
