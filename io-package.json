@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.6-alpha.1",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "Improve error handling\nVerify if port is used from other process",
+        "de": "Fehlerbehebung\nÜberprüfen Sie, ob Port von anderen Prozessen verwendet wird",
+        "ru": "Улучшить обработку ошибок\nПроверьте, используется ли порт из другого процесса",
+        "pt": "Melhorar o manuseio de erros\nVerifique se a porta é usada de outro processo",
+        "nl": "Onverbeterlijke fouten\nVerifieer of de haven gebruikt wordt van een ander proces",
+        "fr": "Améliorer la manipulation des erreurs\nVérifier si le port est utilisé dans un autre procédé",
+        "it": "Migliorare la gestione degli errori\nVerifica se la porta viene utilizzata da altri processi",
+        "es": "Mejorar el manejo de errores\nVerificar si el puerto se utiliza de otro proceso",
+        "pl": "Poprawienie błędów\nJeśli port jest używany z innego procesu",
+        "uk": "Покращення обробки помилок\nПеревірити, якщо порт використовується з іншого процесу",
+        "zh-cn": "改进错误处理\n如果港口从其他加工中得到使用,便证明"
+      },
       "0.0.6-alpha.1": {
         "en": "Improve error handling\nVerify if port is available",
         "de": "Fehlerbehebung\nÜberprüfen Sie, ob Port verfügbar ist",
