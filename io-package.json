@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.5",
+    "version": "0.0.6-alpha.0",
     "news": {
+      "0.0.6-alpha.0": {
+        "en": "Improve error handling",
+        "de": "Fehlerbehebung",
+        "ru": "Улучшить обработку ошибок",
+        "pt": "Melhorar o manuseio de erros",
+        "nl": "Onverbeterlijke fouten",
+        "fr": "Améliorer la manipulation des erreurs",
+        "it": "Migliorare la gestione degli errori",
+        "es": "Mejorar el manejo de errores",
+        "pl": "Poprawienie błędów",
+        "uk": "Покращення обробки помилок",
+        "zh-cn": "改进错误处理"
+      },
       "0.0.5": {
         "en": "add sentry support",
         "de": "unterstützung für den versand",
