@@ -30,7 +30,6 @@ class Tinymqttbroker extends utils.Adapter {
 	 */
 	private async onReady(): Promise<void> {
 		const serverPort: number = this.config.option1;
-		//const serverPort = 8081;
 
 		portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
 			// Status is 'open' if currently in use or 'closed' if available
