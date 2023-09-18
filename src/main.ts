@@ -7,6 +7,7 @@
 import * as utils from '@iobroker/adapter-core';
 import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
+import portscanner from 'portscanner';
 
 class Tinymqttbroker extends utils.Adapter {
 	aedes!: Aedes;
@@ -30,37 +31,38 @@ class Tinymqttbroker extends utils.Adapter {
 	private async onReady(): Promise<void> {
 		const serverPort: number = this.config.option1;
 
-		this.aedes = new Aedes();
-		this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
+		portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
+			// Status is 'open' if currently in use or 'closed' if available
+			if (status == 'open') {
+				this.log.error(`Port ${serverPort} in use, please configure another one!`);
+			}
+			else {
+				this.aedes = new Aedes();
+				this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
 
-		try {
-			this.server = createServer(this.aedes);
-			this.server.listen(serverPort, () => {
-				this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
-			})
+				this.server = createServer(this.aedes);
+				this.server.listen(serverPort, () => {
+					this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
+				})
 
-			// emitted when a client connects to the broker
-			this.aedes.on('client', (client) => {
-				this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
-			})
-			// emitted when a client disconnects from the broker
-			this.aedes.on('clientDisconnect', (client) => {
-				this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
-			})
-			// emitted when a client subscribes to a message topic
-			this.aedes.on('subscribe', (subscriptions, client) => {
-				this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
-			})
-			// emitted when a client unsubscribes from a message topic
-			this.aedes.on('unsubscribe', (subscriptions, client) => {
-				this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
-			})
-
-		} catch (error) {
-			this.log.error(`Issue at CreateServer/listen: ${error}`);
-			console.error(`Issue at CreateServer/listen: ${error}`);
-			this.errorHandling(error);
-		}
+				// emitted when a client connects to the broker
+				this.aedes.on('client', (client) => {
+					this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
+				})
+				// emitted when a client disconnects from the broker
+				this.aedes.on('clientDisconnect', (client) => {
+					this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
+				})
+				// emitted when a client subscribes to a message topic
+				this.aedes.on('subscribe', (subscriptions, client) => {
+					this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
+				})
+				// emitted when a client unsubscribes from a message topic
+				this.aedes.on('unsubscribe', (subscriptions, client) => {
+					this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
+				})
+			}
+		})
 	}
 
 	/**

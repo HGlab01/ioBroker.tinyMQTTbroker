@@ -20,6 +20,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var utils = __toESM(require("@iobroker/adapter-core"));
 var import_aedes = __toESM(require("aedes"));
 var import_aedes_server_factory = require("aedes-server-factory");
+var import_portscanner = __toESM(require("portscanner"));
 class Tinymqttbroker extends utils.Adapter {
   constructor(options = {}) {
     super({
@@ -31,30 +32,30 @@ class Tinymqttbroker extends utils.Adapter {
   }
   async onReady() {
     const serverPort = this.config.option1;
-    this.aedes = new import_aedes.default();
-    this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
-    try {
-      this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
-      this.server.listen(serverPort, () => {
-        this.log.info("MQTT-broker says: Server " + this.aedes.id + " started and listening on port " + serverPort);
-      });
-      this.aedes.on("client", (client) => {
-        this.log.info(`MQTT-broker says: Client ${client ? client.id : client} connected to broker ${this.aedes.id}`);
-      });
-      this.aedes.on("clientDisconnect", (client) => {
-        this.log.info(`MQTT-broker says: Client ${client ? client.id : client} disconnected from the broker ${this.aedes.id}`);
-      });
-      this.aedes.on("subscribe", (subscriptions, client) => {
-        this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} subscribed to topic(s): ${subscriptions.map((s) => s.topic).join(",")} on broker ${this.aedes.id}`);
-      });
-      this.aedes.on("unsubscribe", (subscriptions, client) => {
-        this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} unsubscribed from topic(s): ${subscriptions.join(",")} on broker ${this.aedes.id}`);
-      });
-    } catch (error) {
-      this.log.error(`Issue at CreateServer/listen: ${error}`);
-      console.error(`Issue at CreateServer/listen: ${error}`);
-      this.errorHandling(error);
-    }
+    import_portscanner.default.checkPortStatus(serverPort, "127.0.0.1", (error, status) => {
+      if (status == "open") {
+        this.log.error(`Port ${serverPort} in use, please configure another one!`);
+      } else {
+        this.aedes = new import_aedes.default();
+        this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
+        this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
+        this.server.listen(serverPort, () => {
+          this.log.info("MQTT-broker says: Server " + this.aedes.id + " started and listening on port " + serverPort);
+        });
+        this.aedes.on("client", (client) => {
+          this.log.info(`MQTT-broker says: Client ${client ? client.id : client} connected to broker ${this.aedes.id}`);
+        });
+        this.aedes.on("clientDisconnect", (client) => {
+          this.log.info(`MQTT-broker says: Client ${client ? client.id : client} disconnected from the broker ${this.aedes.id}`);
+        });
+        this.aedes.on("subscribe", (subscriptions, client) => {
+          this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} subscribed to topic(s): ${subscriptions.map((s) => s.topic).join(",")} on broker ${this.aedes.id}`);
+        });
+        this.aedes.on("unsubscribe", (subscriptions, client) => {
+          this.log.debug(`MQTT-broker says: Client ${client ? client.id : client} unsubscribed from topic(s): ${subscriptions.join(",")} on broker ${this.aedes.id}`);
+        });
+      }
+    });
   }
   onUnload(callback) {
     try {
