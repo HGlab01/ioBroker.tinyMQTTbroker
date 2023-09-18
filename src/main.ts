@@ -30,11 +30,13 @@ class Tinymqttbroker extends utils.Adapter {
 	 */
 	private async onReady(): Promise<void> {
 		const serverPort: number = this.config.option1;
+		//const serverPort = 8081;
 
 		portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
 			// Status is 'open' if currently in use or 'closed' if available
 			if (status == 'open') {
-				this.log.error(`Port ${serverPort} in use, please configure another one!`);
+				this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
+				this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
 			}
 			else {
 				this.aedes = new Aedes();

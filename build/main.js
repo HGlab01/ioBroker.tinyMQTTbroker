@@ -34,7 +34,8 @@ class Tinymqttbroker extends utils.Adapter {
     const serverPort = this.config.option1;
     import_portscanner.default.checkPortStatus(serverPort, "127.0.0.1", (error, status) => {
       if (status == "open") {
-        this.log.error(`Port ${serverPort} in use, please configure another one!`);
+        this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
+        this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
       } else {
         this.aedes = new import_aedes.default();
         this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);

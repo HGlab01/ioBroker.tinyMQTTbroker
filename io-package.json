@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.6-alpha.0",
+    "version": "0.0.6-alpha.1",
     "news": {
+      "0.0.6-alpha.1": {
+        "en": "Improve error handling\nVerify if port is available",
+        "de": "Fehlerbehebung\nÜberprüfen Sie, ob Port verfügbar ist",
+        "ru": "Улучшить обработку ошибок\nПроверьте, доступен ли порт",
+        "pt": "Melhorar o manuseio de erros\nVerifique se a porta está disponível",
+        "nl": "Onverbeterlijke fouten\nVerifieer of de haven beschikbaar is",
+        "fr": "Améliorer la manipulation des erreurs\nVérifier si le port est disponible",
+        "it": "Migliorare la gestione degli errori\nVerifica se la porta è disponibile",
+        "es": "Mejorar el manejo de errores\nVerificar si el puerto está disponible",
+        "pl": "Poprawienie błędów\nJeśli port jest dostępny",
+        "uk": "Покращення обробки помилок\nПеревірити наявність порту",
+        "zh-cn": "改进错误处理\n港口的提供"
+      },
       "0.0.6-alpha.0": {
         "en": "Improve error handling",
         "de": "Fehlerbehebung",

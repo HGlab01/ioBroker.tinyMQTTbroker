@@ -82,8 +82,9 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.6-alpha.0 (2023-09-18)
+### 0.0.6-alpha.1 (2023-09-18)
 * (HGlab01) Improve error handling
+* (HGlab01) Verify if port is available
 
 ### 0.0.5 (2023-09-11)
 * (HGlab01) add sentry support
