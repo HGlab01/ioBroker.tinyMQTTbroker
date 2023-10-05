@@ -81,6 +81,9 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.7-alpha.0 (2023-10-05)
+* (HGlab01) add logs for "address already in use"-issue
+
 ### 0.0.6 (2023-09-18)
 * (HGlab01) Improve error handling
 * (HGlab01) Verify if port is used from other process
