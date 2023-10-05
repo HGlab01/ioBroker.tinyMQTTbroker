@@ -32,7 +32,10 @@ class Tinymqttbroker extends utils.Adapter {
   }
   async onReady() {
     const serverPort = this.config.option1;
+    console.log("Port " + serverPort + " is configured");
     import_portscanner.default.checkPortStatus(serverPort, "127.0.0.1", (error, status) => {
+      console.log(`Portscanner result for port ${serverPort} is [${status}]`);
+      this.log.debug(`Portscanner result for port ${serverPort} is [${status}]`);
       if (status == "open") {
         this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
         this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);

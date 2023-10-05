@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.6",
+    "version": "0.0.7-alpha.0",
     "news": {
+      "0.0.7-alpha.0": {
+        "en": "add logs for \"address already in use\"-issue",
+        "de": "protokolle für \"adresse bereits im gebrauch\"-ausgabe hinzufügen",
+        "ru": "добавить журналы для \"адрес уже в использовании\"-выдача",
+        "pt": "adicionar logs para \"endereço já em uso\"-edição",
+        "nl": "voeg logboeken toe voor \"adress al in gebruik\"",
+        "fr": "ajouter des journaux pour \"address already in use\"-issue",
+        "it": "aggiungere i log per \"indirizzo già in uso\"-problema",
+        "es": "añadir registros para \"address already in use\"-issue",
+        "pl": "dodać do litery „adres” już w użyciu",
+        "uk": "додати журнали для \"роздягання вже у використанні\"-виготовки",
+        "zh-cn": "增加“已经使用过的处理”的逻辑"
+      },
       "0.0.6": {
         "en": "Improve error handling\nVerify if port is used from other process",
         "de": "Fehlerbehebung\nÜberprüfen Sie, ob Port von anderen Prozessen verwendet wird",
