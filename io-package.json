@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.7",
+    "version": "0.0.8-alpha.0",
     "news": {
+      "0.0.8-alpha.0": {
+        "en": "Bump json-explorer to 0.1.14-alpha",
+        "de": "Stoßdämpfer auf 0,1.14-alpha",
+        "ru": "Bump json-explorer до 0.1.14-alpha",
+        "pt": "Bump json-explorer para 0.1.14-alpha",
+        "nl": "Bump Json-explorer tot 0.1.14-alfa",
+        "fr": "Bump json-explorer à 0,1.14-alpha",
+        "it": "Bump json-explorer a 0.1.14-alpha",
+        "es": "Bump json-explorer to 0.1.14-alpha",
+        "pl": "Bump json-explorer to 0.1.14-alfa",
+        "uk": "Bump json-explorer до 0.1.14-alpha",
+        "zh-cn": "Bump json-explorer to0.1.14-alpha"
+      },
       "0.0.7": {
         "en": "add logs for \"address already in use\"-issue",
         "de": "protokolle für \"adresse bereits im gebrauch\"-ausgabe hinzufügen",
@@ -80,19 +93,6 @@
         "pl": "wsparcie",
         "uk": "додання відправлень",
         "zh-cn": "增 发"
-      },
-      "0.0.5-alpha.1": {
-        "en": "first release",
-        "de": "erste veröffentlichung",
-        "ru": "первый релиз",
-        "pt": "primeiro lançamento",
-        "nl": "eerste vrijlating",
-        "fr": "première version",
-        "it": "primo rilascio",
-        "es": "primera liberación",
-        "pl": "pierwsze wydanie",
-        "uk": "перший реліз",
-        "zh-cn": "首次释放"
       }
     },
     "titleLang": {
