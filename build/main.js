@@ -21,6 +21,8 @@ var utils = __toESM(require("@iobroker/adapter-core"));
 var import_aedes = __toESM(require("aedes"));
 var import_aedes_server_factory = require("aedes-server-factory");
 var import_portscanner = __toESM(require("portscanner"));
+const jsonExplorer = require("iobroker-jsonexplorer");
+const { version } = require("../package.json");
 class Tinymqttbroker extends utils.Adapter {
   constructor(options = {}) {
     super({
@@ -29,8 +31,10 @@ class Tinymqttbroker extends utils.Adapter {
     });
     this.on("ready", this.onReady.bind(this));
     this.on("unload", this.onUnload.bind(this));
+    jsonExplorer.init(this, {});
   }
   async onReady() {
+    jsonExplorer.sendVersionInfo(version);
     const serverPort = this.config.option1;
     console.log("Port " + serverPort + " is configured");
     import_portscanner.default.checkPortStatus(serverPort, "127.0.0.1", (error, status) => {
