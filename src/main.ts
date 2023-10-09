@@ -9,6 +9,11 @@ import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
 import portscanner from 'portscanner';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const jsonExplorer:any = require('iobroker-jsonexplorer');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { version } = require('../package.json');
+
 class Tinymqttbroker extends utils.Adapter {
 	aedes!: Aedes;
 	server!: any;
@@ -23,12 +28,14 @@ class Tinymqttbroker extends utils.Adapter {
 		// this.on('objectChange', this.onObjectChange.bind(this));
 		// this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
+		jsonExplorer.init(this, {});
 	}
 
 	/**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	private async onReady(): Promise<void> {
+		jsonExplorer.sendVersionInfo(version);
 		const serverPort: number = this.config.option1;
 		console.log('Port ' + serverPort + ' is configured');
 
