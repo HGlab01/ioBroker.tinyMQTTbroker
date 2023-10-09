@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.0.8-alpha.0",
+    "version": "0.0.8",
     "news": {
+      "0.0.8": {
+        "en": "Bump json-explorer to 0.1.14",
+        "de": "Stoßdämpfer bis 0,1.14",
+        "ru": "Bump json-explorer до 0.1.14",
+        "pt": "Bump json-explorer para 0.1.14",
+        "nl": "Bump Json-explorer tot 0.1.14",
+        "fr": "Bump json-explorer à 0,1.14",
+        "it": "Bump json-explorer a 0.1.14",
+        "es": "Bump json-explorer to 0.1.14",
+        "pl": "Bump json-explorer do 0,1.14",
+        "uk": "Bump json-explorer до 0.1.14",
+        "zh-cn": "Bump json-explorer to 014"
+      },
       "0.0.8-alpha.0": {
         "en": "Bump json-explorer to 0.1.14-alpha",
         "de": "Stoßdämpfer auf 0,1.14-alpha",
@@ -80,19 +93,6 @@
         "pl": "Poprawienie błędów",
         "uk": "Покращення обробки помилок",
         "zh-cn": "改进错误处理"
-      },
-      "0.0.5": {
-        "en": "add sentry support",
-        "de": "unterstützung für den versand",
-        "ru": "добавить службу поддержки",
-        "pt": "adicionar suporte de sentinela",
-        "nl": "voeg sentiment",
-        "fr": "add sentry support",
-        "it": "aggiungere supporto per la spedizione",
-        "es": "add centry support",
-        "pl": "wsparcie",
-        "uk": "додання відправлень",
-        "zh-cn": "增 发"
       }
     },
     "titleLang": {
