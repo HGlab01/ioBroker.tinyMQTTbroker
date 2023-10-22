@@ -81,6 +81,9 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.9-alpha.0 (2023-10-22)
+* (HGlab01) Update dependencies
+
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
 
