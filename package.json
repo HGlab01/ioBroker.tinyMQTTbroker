@@ -4,7 +4,7 @@
   "description": "tinymqttbroker",
   "author": {
     "name": "HGlab01",
-    "email": "iobroker.followthesun@gmail.com"
+    "email": "myiobrokeradapters@gmail.com"
   },
   "homepage": "https://github.com/HGlab01/ioBroker.tinymqttbroker",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "url": "https://github.com/HGlab01/ioBroker.tinyMQTTbroker.git"
   },
   "engines": {
-    "node": ">= 16"
+    "node": ">= 18.0.0"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.4",
