@@ -90,9 +90,6 @@ onStop(function (callback) {
 ### **WORK IN PROGRESS**
 * (HGlab01) first minor release
 
-### 0.0.9-alpha.0 (2023-10-22)
-* (HGlab01) Update dependencies
-
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
 
