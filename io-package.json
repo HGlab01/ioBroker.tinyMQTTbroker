@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.0-alpha.0",
+    "version": "0.1.0",
     "news": {
+      "0.1.0": {
+        "en": "first minor release\nNode.js 18.0 or higher\nioBroker host (js-controller) 5.0 or higher",
+        "de": "erste kleinere veröffentlichung\nNode.js 18.0 oder höher\nioBroker host (js-controller) 5.0 oder höher",
+        "ru": "первый незначительный релиз\nNode.js 18.0 или выше\nioBroker host (js-controller) 5.0 или выше",
+        "pt": "primeiro lançamento menor\nNode.js 18.0 ou superior\nhospedeiro ioBroker (js-controller) 5.0 ou superior",
+        "nl": "eerste kleine vrijlating\nNode\nioBroker gastheer (js-controller) 5,0 of hoger",
+        "fr": "première libération mineure\nNode.js 18.0 ou supérieur\nioBroker host (js-controller) 5.0 ou supérieur",
+        "it": "primo rilascio minore\nNode.js 18.0 o superiore\nioBroker host (js-controller) 5.0 o superiore",
+        "es": "primera liberación menor\nNode.js 18.0 o superior\nioBroker host (js-controller) 5.0 o superior",
+        "pl": "pierwsze niewielkie wydanie\nNr 18.0 lub wyższy\nioBroker host (js-controller) 5.0 lub wyższe",
+        "uk": "перший незначний реліз\nNode.js 18.0 або вище\nioBroker host (js-controller) 5.0 або вище",
+        "zh-cn": "首批未成年人释放\n第18.0或更高\nio Broker收容(控制员)5.0或更高。"
+      },
       "0.1.0-alpha.0": {
         "en": "first minor release",
         "de": "erste kleinere veröffentlichung",
@@ -80,19 +93,6 @@
         "pl": "dodać do litery „adres” już w użyciu",
         "uk": "додати журнали для \"роздягання вже у використанні\"-виготовки",
         "zh-cn": "增加“已经使用过的处理”的逻辑"
-      },
-      "0.0.6": {
-        "en": "Improve error handling\nVerify if port is used from other process",
-        "de": "Fehlerbehebung\nÜberprüfen Sie, ob Port von anderen Prozessen verwendet wird",
-        "ru": "Улучшить обработку ошибок\nПроверьте, используется ли порт из другого процесса",
-        "pt": "Melhorar o manuseio de erros\nVerifique se a porta é usada de outro processo",
-        "nl": "Onverbeterlijke fouten\nVerifieer of de haven gebruikt wordt van een ander proces",
-        "fr": "Améliorer la manipulation des erreurs\nVérifier si le port est utilisé dans un autre procédé",
-        "it": "Migliorare la gestione degli errori\nVerifica se la porta viene utilizzata da altri processi",
-        "es": "Mejorar el manejo de errores\nVerificar si el puerto se utiliza de otro proceso",
-        "pl": "Poprawienie błędów\nJeśli port jest używany z innego procesu",
-        "uk": "Покращення обробки помилок\nПеревірити, якщо порт використовується з іншого процесу",
-        "zh-cn": "改进错误处理\n如果港口从其他加工中得到使用,便证明"
       }
     },
     "titleLang": {
