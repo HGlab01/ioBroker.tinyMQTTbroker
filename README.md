@@ -69,7 +69,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
     else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
 });
 ```
-IMPORTANT! If you create your own MQTT client in a ioBroker javascript, do not forget to close the client in the scipt by using
+IMPORTANT! If you create your own MQTT client in an ioBroker javascript, do not forget to close the client in the scipt by using
 ```
 onStop(function (callback) {
     log('MQTT Client will be closed...');
