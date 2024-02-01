@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.1-alpha.0",
+    "version": "0.1.1",
     "news": {
+      "0.1.1": {
+        "en": "Bump json-explorer to 0.1.15\nBump aedes to 0.51.0",
+        "de": "Stoßdämpfer bis 0,1.15\nBump aeds bis 0.51.0",
+        "ru": "Bump json-explorer to 0.1.15\n0,51,0",
+        "pt": "Bump json-explorer para 0.1.15\nBump aedes para 0.51.0",
+        "nl": "Bump json-explorer naar 0,1.15\nBump aedes naar 0,51,0",
+        "fr": "Bump json-explorer à 0,1.15\nAedes de bouffées à 0,51,0",
+        "it": "Bump json-explorer a 0.1.15\nAede di bump a 0.51.0",
+        "es": "Bump json-explorer to 0.1.15\nAedes de bomba a 0.51.0",
+        "pl": "Bump json- explorer do 0.1.15\nBump aedes do 0.51.0",
+        "uk": "Bump json-explorer до 0.1.15\nНакопичувачі на 0.51.0",
+        "zh-cn": "Bump json-探索器改为0.1.15\n弹簧至0.51.0"
+      },
       "0.1.1-alpha.0": {
         "en": "Bump json-explorer to 0.1.15\nBump aedes to 0.51.0",
         "de": "Stoßdämpfer bis 0,1.15\nBump aeds bis 0.51.0",
@@ -80,19 +93,6 @@
         "pl": "Bump json-explorer to 0.1.14-alfa",
         "uk": "Bump json-explorer до 0.1.14-alpha",
         "zh-cn": "Bump json-explorer to0.1.14-alpha"
-      },
-      "0.0.7": {
-        "en": "add logs for \"address already in use\"-issue",
-        "de": "protokolle für \"adresse bereits im gebrauch\"-ausgabe hinzufügen",
-        "ru": "добавить журналы для \"адрес уже в использовании\"-выдача",
-        "pt": "adicionar logs para \"endereço já em uso\"-edição",
-        "nl": "voeg logboeken toe voor \"adress al in gebruik\"",
-        "fr": "ajouter des journaux pour \"address already in use\"-issue",
-        "it": "aggiungere i log per \"indirizzo già in uso\"-problema",
-        "es": "añadir registros para \"address already in use\"-issue",
-        "pl": "dodać do litery „adres” już w użyciu",
-        "uk": "додати журнали для \"роздягання вже у використанні\"-виготовки",
-        "zh-cn": "增加“已经使用过的处理”的逻辑"
       }
     },
     "titleLang": {

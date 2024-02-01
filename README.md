@@ -87,7 +87,7 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.1-alpha.0 (2024-02-01)
+### 0.1.1 (2024-02-01)
 * (HGlab01) Bump json-explorer to 0.1.15
 * (HGlab01) Bump aedes to 0.51.0
 
