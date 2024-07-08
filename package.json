@@ -25,7 +25,7 @@
     "@iobroker/adapter-core": "^3.1.6",
     "aedes": "^0.51.2",
     "aedes-server-factory": "^0.2.1",
-    "iobroker-jsonexplorer": "0.1.15",
+    "iobroker-jsonexplorer": "0.1.16",
     "portscanner": "^2.2.0"
   },
   "devDependencies": {
