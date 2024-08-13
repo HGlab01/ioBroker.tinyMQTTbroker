@@ -43,8 +43,8 @@ class Tinymqttbroker extends utils.Adapter {
             // Status is 'open' if currently in use or 'closed' if available
             if (status == 'open') {
                 this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
-                this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
-                return;
+                const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                return end;
             }
             else {
                 this.aedes = new Aedes();
