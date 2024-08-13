@@ -13,7 +13,7 @@ module.exports = {
 		'@typescript-eslint'
 	],
 	rules: {
-		"indent": ['warn', 4],
+		'indent': ['warn', 4],
 		'quotes': [
 			'error',
 			'single',
