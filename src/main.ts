@@ -9,9 +9,7 @@ import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
 import portscanner from 'portscanner';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const jsonExplorer:any = require('iobroker-jsonexplorer');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('../package.json');
 
 class Tinymqttbroker extends utils.Adapter {
@@ -85,7 +83,7 @@ class Tinymqttbroker extends utils.Adapter {
 			this.server.close();
 			this.log.info(`MQTT-broker says: I (${this.aedes.id}) stopped my service. See you soon!`);
 			callback();
-		} catch (e) {
+		} catch {
 			callback();
 		}
 	}
