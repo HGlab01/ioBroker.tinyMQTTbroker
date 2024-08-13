@@ -9,133 +9,132 @@ import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
 import portscanner from 'portscanner';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const jsonExplorer:any = require('iobroker-jsonexplorer');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('../package.json');
 
 class Tinymqttbroker extends utils.Adapter {
-	aedes!: Aedes;
-	server!: any;
+    aedes!: Aedes;
+    server!: any;
 
-	public constructor(options: Partial<utils.AdapterOptions> = {}) {
-		super({
-			...options,
-			name: 'tinymqttbroker',
-		});
-		this.on('ready', this.onReady.bind(this));
-		//this.on('stateChange', this.onStateChange.bind(this));
-		// this.on('objectChange', this.onObjectChange.bind(this));
-		// this.on('message', this.onMessage.bind(this));
-		this.on('unload', this.onUnload.bind(this));
-		jsonExplorer.init(this, {});
-	}
+    public constructor(options: Partial<utils.AdapterOptions> = {}) {
+        super({
+            ...options,
+            name: 'tinymqttbroker',
+        });
+        this.on('ready', this.onReady.bind(this));
+        //this.on('stateChange', this.onStateChange.bind(this));
+        // this.on('objectChange', this.onObjectChange.bind(this));
+        // this.on('message', this.onMessage.bind(this));
+        this.on('unload', this.onUnload.bind(this));
+        jsonExplorer.init(this, {});
+    }
 
-	/**
+    /**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
-	private async onReady(): Promise<void> {
-		jsonExplorer.sendVersionInfo(version);
-		const serverPort: number = this.config.option1;
-		console.log('Port ' + serverPort + ' is configured');
+    private async onReady(): Promise<void> {
+        jsonExplorer.sendVersionInfo(version);
+        const serverPort: number = this.config.option1;
+        console.log('Port ' + serverPort + ' is configured');
 
-		portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
-			console.log(`Portscanner result for port ${serverPort} is [${status}]`);
-			this.log.debug(`Portscanner result for port ${serverPort} is [${status}]`);
-			// Status is 'open' if currently in use or 'closed' if available
-			if (status == 'open') {
-				this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
-				this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
-			}
-			else {
-				this.aedes = new Aedes();
-				this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
+        portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
+            console.log(`Portscanner result for port ${serverPort} is [${status}]`);
+            this.log.debug(`Portscanner result for port ${serverPort} is [${status}]`);
+            // Status is 'open' if currently in use or 'closed' if available
+            if (status == 'open') {
+                this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
+                const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                return end;
+            }
+            else {
+                this.aedes = new Aedes();
+                this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
 
-				this.server = createServer(this.aedes);
-				this.server.listen(serverPort, () => {
-					this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
-				})
+                this.server = createServer(this.aedes);
+                this.server.listen(serverPort, () => {
+                    this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
+                })
 
-				// emitted when a client connects to the broker
-				this.aedes.on('client', (client) => {
-					this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
-				})
-				// emitted when a client disconnects from the broker
-				this.aedes.on('clientDisconnect', (client) => {
-					this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
-				})
-				// emitted when a client subscribes to a message topic
-				this.aedes.on('subscribe', (subscriptions, client) => {
-					this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
-				})
-				// emitted when a client unsubscribes from a message topic
-				this.aedes.on('unsubscribe', (subscriptions, client) => {
-					this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
-				})
-			}
-		})
-	}
+                // emitted when a client connects to the broker
+                this.aedes.on('client', (client) => {
+                    this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
+                })
+                // emitted when a client disconnects from the broker
+                this.aedes.on('clientDisconnect', (client) => {
+                    this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
+                })
+                // emitted when a client subscribes to a message topic
+                this.aedes.on('subscribe', (subscriptions, client) => {
+                    this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
+                })
+                // emitted when a client unsubscribes from a message topic
+                this.aedes.on('unsubscribe', (subscriptions, client) => {
+                    this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
+                })
+            }
+        })
+    }
 
-	/**
+    /**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
 	 */
-	private onUnload(callback: () => void): void {
-		try {
-			this.aedes.close();
-			this.server.close();
-			this.log.info(`MQTT-broker says: I (${this.aedes.id}) stopped my service. See you soon!`);
-			callback();
-		} catch (e) {
-			callback();
-		}
-	}
+    private onUnload(callback: () => void): void {
+        try {
+            this.aedes.close();
+            this.server.close();
+            this.log.info(`MQTT-broker says: I (${this.aedes.id}) stopped my service. See you soon!`);
+            callback();
+        } catch {
+            callback();
+        }
+    }
 
-	/**
+    /**
 	 * Is called if a subscribed state changes
 	 */
-	private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
-		if (state) {
-			// The state was changed
-			this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-		} else {
-			// The state was deleted
-			this.log.info(`state ${id} deleted`);
-		}
-	}
+    private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
+        if (state) {
+            // The state was changed
+            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+        } else {
+            // The state was deleted
+            this.log.info(`state ${id} deleted`);
+        }
+    }
 
-	errorHandling(errorObject: any): void {
-		try {
-			if (this.log.level != 'debug' && this.log.level != 'silly') {
-				if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
-					const sentryInstance = this.getPluginInstance('sentry');
-					if (sentryInstance) {
-						sentryInstance.getSentryObject().captureException(errorObject);
-					}
-				}
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}
+    errorHandling(errorObject: any): void {
+        try {
+            if (this.log.level != 'debug' && this.log.level != 'silly') {
+                if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
+                    const sentryInstance = this.getPluginInstance('sentry');
+                    if (sentryInstance) {
+                        sentryInstance.getSentryObject().captureException(errorObject);
+                    }
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-	sendSentry(errorObject: any): void {
-		try {
-			if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
-				const sentryInstance = this.getPluginInstance('sentry');
-				if (sentryInstance) {
-					sentryInstance.getSentryObject().captureException(errorObject);
-				}
-			}
-		} catch (error) {
-			this.log.error(`Error in function sendSentry(): ${error}`);
-		}
-	}
+    sendSentry(errorObject: any): void {
+        try {
+            if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
+                const sentryInstance = this.getPluginInstance('sentry');
+                if (sentryInstance) {
+                    sentryInstance.getSentryObject().captureException(errorObject);
+                }
+            }
+        } catch (error) {
+            this.log.error(`Error in function sendSentry(): ${error}`);
+        }
+    }
 }
 
 if (require.main !== module) {
-	// Export the constructor in compact mode
-	module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new Tinymqttbroker(options);
+    // Export the constructor in compact mode
+    module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new Tinymqttbroker(options);
 } else {
-	// otherwise start the instance directly
-	(() => new Tinymqttbroker())();
+    // otherwise start the instance directly
+    (() => new Tinymqttbroker())();
 }

@@ -9,16 +9,11 @@ module.exports = {
 	extends: [
 		'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
 	],
-	plugins: [],
+	plugins: [
+		'@typescript-eslint'
+	],
 	rules: {
-		'indent': 'off',
-		'@typescript-eslint/indent': [
-			'error',
-			'tab',
-			{
-				'SwitchCase': 1
-			}
-		],
+		'indent': ['warn', 4],
 		'quotes': [
 			'error',
 			'single',
@@ -27,6 +22,8 @@ module.exports = {
 				'allowTemplateLiterals': true
 			}
 		],
+		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/no-require-imports": "off",
 		'@typescript-eslint/no-parameter-properties': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-use-before-define': [
