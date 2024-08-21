@@ -53,26 +53,26 @@ class Tinymqttbroker extends utils.Adapter {
                 this.server = createServer(this.aedes);
                 this.server.listen(serverPort, () => {
                     this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
-                })
+                });
 
                 // emitted when a client connects to the broker
                 this.aedes.on('client', (client) => {
                     this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
-                })
+                });
                 // emitted when a client disconnects from the broker
                 this.aedes.on('clientDisconnect', (client) => {
                     this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
-                })
+                });
                 // emitted when a client subscribes to a message topic
                 this.aedes.on('subscribe', (subscriptions, client) => {
                     this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
-                })
+                });
                 // emitted when a client unsubscribes from a message topic
                 this.aedes.on('unsubscribe', (subscriptions, client) => {
                     this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
-                })
+                });
             }
-        })
+        });
     }
 
     /**
