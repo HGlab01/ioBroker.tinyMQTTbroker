@@ -13,7 +13,7 @@ const compat = new FlatCompat({
 });
 
 export default [...compat.extends('eslint:recommended'), {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: "src/*.ts",
     languageOptions: {
         globals: {
             ...globals.node,
