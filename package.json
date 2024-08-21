@@ -21,7 +21,6 @@
   "engines": {
     "node": ">= 18.0.0"
   },
-  "tier": 3,
   "dependencies": {
     "@iobroker/adapter-core": "^3.1.6",
     "aedes": "^0.51.2",
