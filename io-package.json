@@ -138,6 +138,7 @@
     "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/main/admin/tinymqttbroker.png",
     "readme": "https://github.com/HGlab01/ioBroker.tinymqttbroker/blob/main/README.md",
     "loglevel": "info",
+    "tier": 3,
     "mode": "daemon",
     "type": "protocols",
     "compact": true,
