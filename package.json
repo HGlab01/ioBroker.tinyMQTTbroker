@@ -7,10 +7,7 @@
     "email": "myiobrokeradapters@gmail.com"
   },
   "homepage": "https://github.com/HGlab01/ioBroker.tinymqttbroker",
-  "licenseInformation": {
-      "type": "free",
-      "license": "MIT"
-    },
+  "license": "MIT",
   "keywords": [
     "ioBroker",
     "MQTT",
