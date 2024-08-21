@@ -18,7 +18,7 @@ export default [...compat.extends('eslint:recommended'), {
         "**/*.cts",
         "**.*.mts"
     ],
-    ignores: [**/*.js],
+    ignores: ["**/*.js"],
     languageOptions: {
         globals: {
             ...globals.node,
