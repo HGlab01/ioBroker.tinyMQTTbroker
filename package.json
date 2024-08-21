@@ -7,12 +7,15 @@
     "email": "myiobrokeradapters@gmail.com"
   },
   "homepage": "https://github.com/HGlab01/ioBroker.tinymqttbroker",
-  "license": "MIT",
+  "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
   "keywords": [
     "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation"
+    "MQTT",
+    "MQTT broker",
+    "MQTT server"
   ],
   "repository": {
     "type": "git",
@@ -21,11 +24,12 @@
   "engines": {
     "node": ">= 18.0.0"
   },
+  "tier": 3,
   "dependencies": {
     "@iobroker/adapter-core": "^3.1.6",
     "aedes": "^0.51.2",
     "aedes-server-factory": "^0.2.1",
-    "iobroker-jsonexplorer": "0.1.16",
+    "iobroker-jsonexplorer": "^0.1.16",
     "portscanner": "^2.2.0",
     "typescript-eslint": "^8.2.0"
   },
