@@ -6,7 +6,12 @@
 			"type": "number",
 			"label": "MQTT Port",
 			"min": 1880,
-			"newLine": true
+			"newLine": true,
+			"xs": 12,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"xl": 4
 		}
 	}
 }
