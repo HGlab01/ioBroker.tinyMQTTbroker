@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.2-alpha.1",
+    "version": "0.1.2",
     "news": {
+      "0.1.2": {
+        "en": "Bump json-explorer to 0.1.16\nBump aedes to 0.51.3",
+        "de": "Stoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
+        "ru": "Bump json-explorer до 0.1.16\n0,51,3",
+        "pt": "Bump json-explorer para 0.1.16\nBump aedes para 0.51.3",
+        "nl": "Bump json-explorer naar 0,1.16\nBump aedes naar 0,51,3",
+        "fr": "Bump json-explorer à 0,1.16\nAedes de bouffées à 0,51,3",
+        "it": "Bump json-explorer a 0.1.16\nAede di bump a 0.51.3",
+        "es": "Bump json-explorer to 0.1.16\nAedes de bomba a 0.51.3",
+        "pl": "Bump json- explorer do 0.1.16\nBump aedes do 0.51.3",
+        "uk": "Bump json-explorer до 0.1.16\nНакопичувачі до 0.51.3",
+        "zh-cn": "Bump json-探索器改为0.1.16\n弹簧至0.51.3"
+      },
       "0.1.2-alpha.1": {
         "en": "Bump json-explorer to 0.1.16\nBump aedes to 0.51.3",
         "de": "Stoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
@@ -80,19 +93,6 @@
         "pl": "pierwsze niewielkie wydanie",
         "uk": "перший незначний реліз",
         "zh-cn": "首批未成年人释放"
-      },
-      "0.0.9-alpha.0": {
-        "en": "Update dependencies",
-        "de": "Abhängigkeiten aktualisieren",
-        "ru": "Обновить зависимости",
-        "pt": "Dependências de atualização",
-        "nl": "Update afhankelijkheid",
-        "fr": "Mettre à jour les dépendances",
-        "it": "Dipendenze di aggiornamento",
-        "es": "Actualizar las dependencias",
-        "pl": "Zależności aktualnej",
-        "uk": "Оновлення залежності",
-        "zh-cn": "最新依赖"
       }
     },
     "titleLang": {
