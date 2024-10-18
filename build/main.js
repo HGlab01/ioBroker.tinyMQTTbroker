@@ -14,6 +14,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -33,6 +37,9 @@ class Tinymqttbroker extends utils.Adapter {
     this.on("unload", this.onUnload.bind(this));
     jsonExplorer.init(this, {});
   }
+  /**
+  * Is called when databases are connected and adapter received configuration.
+  */
   async onReady() {
     jsonExplorer.sendVersionInfo(version);
     const serverPort = this.config.option1;
@@ -42,7 +49,8 @@ class Tinymqttbroker extends utils.Adapter {
       this.log.debug(`Portscanner result for port ${serverPort} is [${status}]`);
       if (status == "open") {
         this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
-        this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+        const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+        return end;
       } else {
         this.aedes = new import_aedes.default();
         this.aedes.id = "iobroker_mqtt_broker_" + Math.floor(Math.random() * 1e5 + 1e5);
@@ -65,16 +73,22 @@ class Tinymqttbroker extends utils.Adapter {
       }
     });
   }
+  /**
+  * Is called when adapter shuts down - callback has to be called under any circumstances!
+  */
   onUnload(callback) {
     try {
       this.aedes.close();
       this.server.close();
       this.log.info(`MQTT-broker says: I (${this.aedes.id}) stopped my service. See you soon!`);
       callback();
-    } catch (e) {
+    } catch {
       callback();
     }
   }
+  /**
+  * Is called if a subscribed state changes
+  */
   onStateChange(id, state) {
     if (state) {
       this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);

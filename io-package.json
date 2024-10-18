@@ -1,8 +1,34 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.1",
+    "version": "0.1.2-alpha.1",
     "news": {
+      "0.1.2-alpha.1": {
+        "en": "Bump json-explorer to 0.1.16\nBump aedes to 0.51.3",
+        "de": "Stoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
+        "ru": "Bump json-explorer до 0.1.16\n0,51,3",
+        "pt": "Bump json-explorer para 0.1.16\nBump aedes para 0.51.3",
+        "nl": "Bump json-explorer naar 0,1.16\nBump aedes naar 0,51,3",
+        "fr": "Bump json-explorer à 0,1.16\nAedes de bouffées à 0,51,3",
+        "it": "Bump json-explorer a 0.1.16\nAede di bump a 0.51.3",
+        "es": "Bump json-explorer to 0.1.16\nAedes de bomba a 0.51.3",
+        "pl": "Bump json- explorer do 0.1.16\nBump aedes do 0.51.3",
+        "uk": "Bump json-explorer до 0.1.16\nНакопичувачі до 0.51.3",
+        "zh-cn": "Bump json-探索器改为0.1.16\n弹簧至0.51.3"
+      },
+      "0.1.2-alpha.0": {
+        "en": "Bump json-explorer to 0.1.16\nBump aedes to 0.51.3",
+        "de": "Stoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
+        "ru": "Bump json-explorer до 0.1.16\n0,51,3",
+        "pt": "Bump json-explorer para 0.1.16\nBump aedes para 0.51.3",
+        "nl": "Bump json-explorer naar 0,1.16\nBump aedes naar 0,51,3",
+        "fr": "Bump json-explorer à 0,1.16\nAedes de bouffées à 0,51,3",
+        "it": "Bump json-explorer a 0.1.16\nAede di bump a 0.51.3",
+        "es": "Bump json-explorer to 0.1.16\nAedes de bomba a 0.51.3",
+        "pl": "Bump json- explorer do 0.1.16\nBump aedes do 0.51.3",
+        "uk": "Bump json-explorer до 0.1.16\nНакопичувачі до 0.51.3",
+        "zh-cn": "Bump json-探索器改为0.1.16\n弹簧至0.51.3"
+      },
       "0.1.1": {
         "en": "Bump json-explorer to 0.1.15\nBump aedes to 0.51.0",
         "de": "Stoßdämpfer bis 0,1.15\nBump aeds bis 0.51.0",
@@ -67,32 +93,6 @@
         "pl": "Zależności aktualnej",
         "uk": "Оновлення залежності",
         "zh-cn": "最新依赖"
-      },
-      "0.0.8": {
-        "en": "Bump json-explorer to 0.1.14",
-        "de": "Stoßdämpfer bis 0,1.14",
-        "ru": "Bump json-explorer до 0.1.14",
-        "pt": "Bump json-explorer para 0.1.14",
-        "nl": "Bump Json-explorer tot 0.1.14",
-        "fr": "Bump json-explorer à 0,1.14",
-        "it": "Bump json-explorer a 0.1.14",
-        "es": "Bump json-explorer to 0.1.14",
-        "pl": "Bump json-explorer do 0,1.14",
-        "uk": "Bump json-explorer до 0.1.14",
-        "zh-cn": "Bump json-explorer to 014"
-      },
-      "0.0.8-alpha.0": {
-        "en": "Bump json-explorer to 0.1.14-alpha",
-        "de": "Stoßdämpfer auf 0,1.14-alpha",
-        "ru": "Bump json-explorer до 0.1.14-alpha",
-        "pt": "Bump json-explorer para 0.1.14-alpha",
-        "nl": "Bump Json-explorer tot 0.1.14-alfa",
-        "fr": "Bump json-explorer à 0,1.14-alpha",
-        "it": "Bump json-explorer a 0.1.14-alpha",
-        "es": "Bump json-explorer to 0.1.14-alpha",
-        "pl": "Bump json-explorer to 0.1.14-alfa",
-        "uk": "Bump json-explorer до 0.1.14-alpha",
-        "zh-cn": "Bump json-explorer to0.1.14-alpha"
       }
     },
     "titleLang": {
