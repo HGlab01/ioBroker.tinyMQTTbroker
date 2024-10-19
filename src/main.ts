@@ -9,7 +9,7 @@ import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
 import portscanner from 'portscanner';
 
-const jsonExplorer:any = require('iobroker-jsonexplorer');
+const jsonExplorer: any = require('iobroker-jsonexplorer');
 const { version } = require('../package.json');
 
 class Tinymqttbroker extends utils.Adapter {
@@ -30,54 +30,57 @@ class Tinymqttbroker extends utils.Adapter {
     }
 
     /**
-	 * Is called when databases are connected and adapter received configuration.
-	 */
+     * Is called when databases are connected and adapter received configuration.
+     */
     private async onReady(): Promise<void> {
         jsonExplorer.sendVersionInfo(version);
         const serverPort: number = this.config.option1;
         console.log('Port ' + serverPort + ' is configured');
 
-        portscanner.checkPortStatus(serverPort, '127.0.0.1', (error, status) => {
-            console.log(`Portscanner result for port ${serverPort} is [${status}]`);
-            this.log.debug(`Portscanner result for port ${serverPort} is [${status}]`);
-            // Status is 'open' if currently in use or 'closed' if available
-            if (status == 'open') {
-                this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
-                const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
-                return end;
-            }
-            else {
-                this.aedes = new Aedes();
-                this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
+        const resultPortScanner = await portscanner.checkPortStatus(serverPort, '127.0.0.1');
 
-                this.server = createServer(this.aedes);
-                this.server.listen(serverPort, () => {
-                    this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
-                });
+        if (resultPortScanner == 'open') {
+            this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
+            const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+            return end;
+        }
 
-                // emitted when a client connects to the broker
-                this.aedes.on('client', (client) => {
-                    this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
-                });
-                // emitted when a client disconnects from the broker
-                this.aedes.on('clientDisconnect', (client) => {
-                    this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
-                });
-                // emitted when a client subscribes to a message topic
-                this.aedes.on('subscribe', (subscriptions, client) => {
-                    this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
-                });
-                // emitted when a client unsubscribes from a message topic
-                this.aedes.on('unsubscribe', (subscriptions, client) => {
-                    this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
-                });
-            }
-        });
+        try {
+            this.aedes = new Aedes();
+            this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
+
+            this.server = createServer(this.aedes);
+            this.server.listen(serverPort, () => {
+                this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
+            });
+
+            // emitted when a client connects to the broker
+            this.aedes.on('client', (client) => {
+                this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
+            });
+            // emitted when a client disconnects from the broker
+            this.aedes.on('clientDisconnect', (client) => {
+                this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
+            });
+            // emitted when a client subscribes to a message topic
+            this.aedes.on('subscribe', (subscriptions, client) => {
+                this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
+            });
+            // emitted when a client unsubscribes from a message topic
+            this.aedes.on('unsubscribe', (subscriptions, client) => {
+                this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
+            });
+        } catch (error) {
+            this.log.error('' + error);
+            console.error('' + error);
+            const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+            return end;
+        }
     }
 
     /**
-	 * Is called when adapter shuts down - callback has to be called under any circumstances!
-	 */
+     * Is called when adapter shuts down - callback has to be called under any circumstances!
+     */
     private onUnload(callback: () => void): void {
         try {
             this.aedes.close();
@@ -90,8 +93,8 @@ class Tinymqttbroker extends utils.Adapter {
     }
 
     /**
-	 * Is called if a subscribed state changes
-	 */
+     * Is called if a subscribed state changes
+     */
     private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
         if (state) {
             // The state was changed

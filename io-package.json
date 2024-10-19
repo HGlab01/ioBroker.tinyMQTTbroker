@@ -1,8 +1,34 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "news": {
+      "0.1.3": {
+        "en": "Improve port scan for available ports\nImprove UI config\nBump json-explorer to 0.1.16\nBump aedes to 0.51.3",
+        "de": "Verbessern Sie den Portscan für verfügbare Ports\nUI config verbessern\nStoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
+        "ru": "Улучшить сканирование портов для доступных портов\nУлучшить конфигурацию интерфейса\nBump json-explorer до 0.1.16\n0,51,3",
+        "pt": "Melhore a verificação da porta para portas disponíveis\nMelhorar a configuração de interface do usuário\nBump json-explorer para 0.1.16\nBump aedes para 0.51.3",
+        "nl": "Verbeter poortscan voor beschikbare poorten\nConfiguratie van UI verbeteren\nBump json-explorer naar 0,1.16\nBump aedes naar 0,51,3",
+        "fr": "Améliorer la numérisation des ports disponibles\nAméliorer la configuration de l'interface utilisateur\nBump json-explorer à 0,1.16\nAedes de bouffées à 0,51,3",
+        "it": "Migliora la scansione della porta per le porte disponibili\nMigliorare la configurazione dell'interfaccia utente\nBump json-explorer a 0.1.16\nAede di bump a 0.51.3",
+        "es": "Mejorar el escaneo portuario para los puertos disponibles\nMejorar el config UI\nBump json-explorer to 0.1.16\nAedes de bomba a 0.51.3",
+        "pl": "Poprawa skanowania portów dla dostępnych portów\nPopraw konfigurację interfejsu użytkownika\nBump json- explorer do 0.1.16\nBump aedes do 0.51.3",
+        "uk": "Покращення сканування портів для доступних портів\nПоліпшити налаштування UI\nBump json-explorer до 0.1.16\nНакопичувачі до 0.51.3",
+        "zh-cn": "改进对现有端口的端口扫描\n改进 UI 配置\nBump json-探索器改为0.1.16\n弹簧至0.51.3"
+      },
+      "0.1.3-alpha.0": {
+        "en": "Improve port scan for available ports\nImprove UI config\nBump json-explorer to 0.1.16\nBump aedes to 0.51.3",
+        "de": "Verbessern Sie den Portscan für verfügbare Ports\nUI config verbessern\nStoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
+        "ru": "Улучшить сканирование портов для доступных портов\nУлучшить конфигурацию интерфейса\nBump json-explorer до 0.1.16\n0,51,3",
+        "pt": "Melhore a verificação da porta para portas disponíveis\nMelhorar a configuração de interface do usuário\nBump json-explorer para 0.1.16\nBump aedes para 0.51.3",
+        "nl": "Verbeter poortscan voor beschikbare poorten\nConfiguratie van UI verbeteren\nBump json-explorer naar 0,1.16\nBump aedes naar 0,51,3",
+        "fr": "Améliorer la numérisation des ports disponibles\nAméliorer la configuration de l'interface utilisateur\nBump json-explorer à 0,1.16\nAedes de bouffées à 0,51,3",
+        "it": "Migliora la scansione della porta per le porte disponibili\nMigliorare la configurazione dell'interfaccia utente\nBump json-explorer a 0.1.16\nAede di bump a 0.51.3",
+        "es": "Mejorar el escaneo portuario para los puertos disponibles\nMejorar el config UI\nBump json-explorer to 0.1.16\nAedes de bomba a 0.51.3",
+        "pl": "Poprawa skanowania portów dla dostępnych portów\nPopraw konfigurację interfejsu użytkownika\nBump json- explorer do 0.1.16\nBump aedes do 0.51.3",
+        "uk": "Покращення сканування портів для доступних портів\nПоліпшити налаштування UI\nBump json-explorer до 0.1.16\nНакопичувачі до 0.51.3",
+        "zh-cn": "改进对现有端口的端口扫描\n改进 UI 配置\nBump json-探索器改为0.1.16\n弹簧至0.51.3"
+      },
       "0.1.2": {
         "en": "Bump json-explorer to 0.1.16\nBump aedes to 0.51.3",
         "de": "Stoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
@@ -67,32 +93,6 @@
         "pl": "Bump json- explorer do 0.1.15\nBump aedes do 0.51.0",
         "uk": "Bump json-explorer до 0.1.15\nНакопичувачі на 0.51.0",
         "zh-cn": "Bump json-探索器改为0.1.15\n弹簧至0.51.0"
-      },
-      "0.1.0": {
-        "en": "first minor release\nNode.js 18.0 or higher\nioBroker host (js-controller) 5.0 or higher",
-        "de": "erste kleinere veröffentlichung\nNode.js 18.0 oder höher\nioBroker host (js-controller) 5.0 oder höher",
-        "ru": "первый незначительный релиз\nNode.js 18.0 или выше\nioBroker host (js-controller) 5.0 или выше",
-        "pt": "primeiro lançamento menor\nNode.js 18.0 ou superior\nhospedeiro ioBroker (js-controller) 5.0 ou superior",
-        "nl": "eerste kleine vrijlating\nNode\nioBroker gastheer (js-controller) 5,0 of hoger",
-        "fr": "première libération mineure\nNode.js 18.0 ou supérieur\nioBroker host (js-controller) 5.0 ou supérieur",
-        "it": "primo rilascio minore\nNode.js 18.0 o superiore\nioBroker host (js-controller) 5.0 o superiore",
-        "es": "primera liberación menor\nNode.js 18.0 o superior\nioBroker host (js-controller) 5.0 o superior",
-        "pl": "pierwsze niewielkie wydanie\nNr 18.0 lub wyższy\nioBroker host (js-controller) 5.0 lub wyższe",
-        "uk": "перший незначний реліз\nNode.js 18.0 або вище\nioBroker host (js-controller) 5.0 або вище",
-        "zh-cn": "首批未成年人释放\n第18.0或更高\nio Broker收容(控制员)5.0或更高。"
-      },
-      "0.1.0-alpha.0": {
-        "en": "first minor release",
-        "de": "erste kleinere veröffentlichung",
-        "ru": "первый незначительный релиз",
-        "pt": "primeiro lançamento menor",
-        "nl": "eerste kleine vrijlating",
-        "fr": "première libération mineure",
-        "it": "primo rilascio minore",
-        "es": "primera liberación menor",
-        "pl": "pierwsze niewielkie wydanie",
-        "uk": "перший незначний реліз",
-        "zh-cn": "首批未成年人释放"
       }
     },
     "titleLang": {
