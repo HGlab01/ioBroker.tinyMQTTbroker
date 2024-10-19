@@ -87,6 +87,9 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Improve port scan for available ports
+
 ### 0.1.2 (2024-10-18)
 * (HGlab01) Bump json-explorer to 0.1.16
 * (HGlab01) Bump aedes to 0.51.3
