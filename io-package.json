@@ -41,7 +41,7 @@
         "pl": "Bump json- explorer do 0.1.15\nBump aedes do 0.51.0",
         "uk": "Bump json-explorer до 0.1.15\nНакопичувачі на 0.51.0",
         "zh-cn": "Bump json-探索器改为0.1.15\n弹簧至0.51.0"
-      },
+      }
     },
     "titleLang": {
       "en": "Tiny MQTT broker",
