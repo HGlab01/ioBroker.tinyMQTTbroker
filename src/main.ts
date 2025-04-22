@@ -62,6 +62,7 @@ class Tinymqttbroker extends utils.Adapter {
                     return end;
                 }
             });
+
             this.server.listen(serverPort, () => {
                 this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
             });
