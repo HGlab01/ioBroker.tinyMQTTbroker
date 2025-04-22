@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "news": {
+      "0.1.4": {
+        "en": "Improve port scan",
+        "de": "Port Scan verbessern",
+        "ru": "Улучшить сканирование портов",
+        "pt": "Melhore a verificação da porta",
+        "nl": "Verbeter poortscan",
+        "fr": "Améliorer l'analyse de port",
+        "it": "Migliora la scansione della porta",
+        "es": "Mejora el escaneo portuario",
+        "pl": "Poprawa skanowania portów",
+        "uk": "Покращення сканування портів",
+        "zh-cn": "改进端口扫描"
+      },
       "0.1.3": {
         "en": "Improve port scan for available ports\nImprove UI config\nBump json-explorer to 0.1.16\nBump aedes to 0.51.3",
         "de": "Verbessern Sie den Portscan für verfügbare Ports\nUI config verbessern\nStoßdämpfer bis 0,1.16\nBump aeds bis 0,51.3",
