@@ -37,10 +37,10 @@ class Tinymqttbroker extends utils.Adapter {
         const serverPort: number = this.config.option1;
         console.log('Port ' + serverPort + ' is configured');
 
-        const resultPortScanner = await portscanner.checkPortStatus(serverPort, '127.0.0.1');
+        const resultPortScanner = await portscanner.checkPortStatus(serverPort);
 
         if (resultPortScanner == 'open') {
-            this.log.error(`Port ${serverPort} in use, please configure another port in adapter settings!`);
+            this.log.error(`Port ${serverPort} is already in use. Please configure another port in adapter settings!`);
             const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
             return end;
         }
@@ -50,6 +50,18 @@ class Tinymqttbroker extends utils.Adapter {
             this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
 
             this.server = createServer(this.aedes);
+
+            this.server.on('error', (error: any) => {
+                if (error?.code === 'EADDRINUSE') {
+                    this.log.error(`Port ${serverPort} is already in use. Cannot start MQTT broker.`);
+                    const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    return end;
+                } else {
+                    this.log.error('An error occurred while starting the MQTT broker ' + error);
+                    const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    return end;
+                }
+            });
             this.server.listen(serverPort, () => {
                 this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
             });
