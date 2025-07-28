@@ -9,7 +9,9 @@ import Aedes from 'aedes';
 import { createServer } from 'aedes-server-factory';
 import portscanner from 'portscanner';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const jsonExplorer: any = require('iobroker-jsonexplorer');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { version } = require('../package.json');
 
 class Tinymqttbroker extends utils.Adapter {
@@ -35,7 +37,7 @@ class Tinymqttbroker extends utils.Adapter {
     private async onReady(): Promise<void> {
         jsonExplorer.sendVersionInfo(version);
         const serverPort: number = this.config.option1;
-        console.log('Port ' + serverPort + ' is configured');
+        console.log(`Port ${serverPort} is configured`);
 
         const resultPortScanner = await portscanner.checkPortStatus(serverPort);
 
@@ -47,45 +49,54 @@ class Tinymqttbroker extends utils.Adapter {
 
         try {
             this.aedes = new Aedes();
-            this.aedes.id = 'iobroker_mqtt_broker_' + Math.floor(Math.random() * 100000 + 100000);
+            this.aedes.id = `iobroker_mqtt_broker_${Math.floor(Math.random() * 100000 + 100000)}`;
 
             this.server = createServer(this.aedes);
 
             this.server.on('error', (error: any) => {
                 if (error?.code === 'EADDRINUSE') {
                     this.log.error(`Port ${serverPort} is already in use. Cannot start MQTT broker.`);
-                    const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
-                    return end;
-                } else {
-                    this.log.error('An error occurred while starting the MQTT broker ' + error);
-                    const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    const end = this.terminate
+                        ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT)
+                        : process.exit(0);
                     return end;
                 }
+                this.log.error(`An error occurred while starting the MQTT broker ${error}`);
+                const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                return end;
             });
 
             this.server.listen(serverPort, () => {
-                this.log.info('MQTT-broker says: Server ' + this.aedes.id + ' started and listening on port ' + serverPort);
+                this.log.info(`MQTT-broker says: Server ${this.aedes.id} started and listening on port ${serverPort}`);
             });
 
             // emitted when a client connects to the broker
-            this.aedes.on('client', (client) => {
-                this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} connected to broker ${this.aedes.id}`);
+            this.aedes.on('client', client => {
+                this.log.info(
+                    `MQTT-broker says: Client ${client ? client.id : client} connected to broker ${this.aedes.id}`,
+                );
             });
             // emitted when a client disconnects from the broker
-            this.aedes.on('clientDisconnect', (client) => {
-                this.log.info(`MQTT-broker says: Client ${(client ? client.id : client)} disconnected from the broker ${this.aedes.id}`);
+            this.aedes.on('clientDisconnect', client => {
+                this.log.info(
+                    `MQTT-broker says: Client ${client ? client.id : client} disconnected from the broker ${this.aedes.id}`,
+                );
             });
             // emitted when a client subscribes to a message topic
             this.aedes.on('subscribe', (subscriptions, client) => {
-                this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`);
+                this.log.debug(
+                    `MQTT-broker says: Client ${client ? client.id : client} subscribed to topic(s): ${subscriptions.map(s => s.topic).join(',')} on broker ${this.aedes.id}`,
+                );
             });
             // emitted when a client unsubscribes from a message topic
             this.aedes.on('unsubscribe', (subscriptions, client) => {
-                this.log.debug(`MQTT-broker says: Client ${(client ? client.id : client)} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`);
+                this.log.debug(
+                    `MQTT-broker says: Client ${client ? client.id : client} unsubscribed from topic(s): ${subscriptions.join(',')} on broker ${this.aedes.id}`,
+                );
             });
         } catch (error) {
-            this.log.error('' + error);
-            console.error('' + error);
+            this.log.error(`${String(error)}`);
+            console.error(`${String(error)}`);
             const end = this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
             return end;
         }
@@ -93,6 +104,8 @@ class Tinymqttbroker extends utils.Adapter {
 
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
+     *
+     * @param callback is called under any circumstances after stopping the adapter
      */
     private onUnload(callback: () => void): void {
         try {
@@ -107,6 +120,9 @@ class Tinymqttbroker extends utils.Adapter {
 
     /**
      * Is called if a subscribed state changes
+     *
+     * @param id is the ID of the state that changed
+     * @param state is the state that changed
      */
     private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
         if (state) {
@@ -142,7 +158,7 @@ class Tinymqttbroker extends utils.Adapter {
                 }
             }
         } catch (error) {
-            this.log.error(`Error in function sendSentry(): ${error}`);
+            this.log.error(`Error in function sendSentry(): ${String(error)}`);
         }
     }
 }
