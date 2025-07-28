@@ -1,31 +1,35 @@
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+// ioBroker eslint template configuration file for js and ts files
+// Please note that esm or react based modules need additional modules loaded.
+import config from '@iobroker/eslint-config';
 
-export default tseslint.config(
-    eslint.configs.recommended,
-    ...tseslint.configs.recommended,
+export default [
+    ...config,
     {
-        ignores: ['**/*.js'],
+        // specify files to exclude from linting here
+        ignores: [
+            '.dev-server/',
+            '.vscode/',
+            '*.test.js',
+            'test/**/*.js',
+            '*.config.mjs',
+            'build',
+            'dist',
+            'admin/build', 
+            'admin/words.js',
+            'admin/admin.d.ts',
+            'admin/blockly.js',
+            '**/adapter-config.d.ts',
+        ],
     },
     {
+        // you may disable some 'jsdoc' warnings - but using jsdoc is highly recommended
+        // as this improves maintainability. jsdoc warnings will not block buiuld process.
         rules: {
-            '@typescript-eslint/no-explicit-any': 'off',
-            '@typescript-eslint/no-require-imports': 'off',
-            indent: ['warn', 4, {
-                SwitchCase: 1
-            }],
-            'no-console': 'off',
-            'no-trailing-spaces': 'error',
-            quotes: ['error', 'single', {
-                avoidEscape: true,
-                allowTemplateLiterals: true
-            }],
-            semi: ['error', 'always'],
-            'comma-dangle': ['error', 'only-multiline']
+            // 'jsdoc/require-jsdoc': 'off',
+            // 'jsdoc/require-param': 'off',
+            // 'jsdoc/require-param-description': 'off',
+            // 'jsdoc/require-returns-description': 'off',
+            // 'jsdoc/require-returns-check': 'off',
         },
-        languageOptions: {
-            ecmaVersion: 2023,
-            sourceType: 'module'
-        }
-    }
-);
+    },
+];
