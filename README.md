@@ -87,6 +87,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (HGlab01) Update libs
+* (HGlab01) (c) 2026
+
 ### 0.1.4 (2025-04-22)
 * (HGlab01) Improve port scan
 
@@ -124,7 +128,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2025 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2026 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
