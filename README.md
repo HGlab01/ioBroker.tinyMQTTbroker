@@ -87,9 +87,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.5-alpha.0 (2026-02-16)
 * (HGlab01) Update libs
 * (HGlab01) (c) 2026
+* (HGlab01) Bump aedes to v1.0.0
 
 ### 0.1.4 (2025-04-22)
 * (HGlab01) Improve port scan
@@ -149,4 +150,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)
-

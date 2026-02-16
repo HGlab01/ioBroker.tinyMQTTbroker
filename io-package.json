@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.4",
+    "version": "0.1.5-alpha.0",
     "news": {
+      "0.1.5-alpha.0": {
+        "en": "Update libs\n(c) 2026\nBump aedes to v1.0.0",
+        "de": "Update libs\nc) 2026\nBump aedes to v1.0.0",
+        "ru": "Обновление libs\nc) 2026 год\nНакачиваем пузыри до v1.0.0",
+        "pt": "Atualizar libs\nc) 2026\nBump aedes to v1.0.0",
+        "nl": "Libs bijwerken\nc) 2026\nBump aedes naar v1.0.0",
+        "fr": "Mettre à jour les libs\nc) 2026\nBump aedes à v1.0.0",
+        "it": "Aggiorna libs\ne) 2026\nAede di bump a v1.0.0",
+        "es": "Actualizar libs\nc) 2026\nBump aedes to v1.0.0",
+        "pl": "Aktualizuj liby\nc) 2026 r\nBump aedes to v1.0.0",
+        "uk": "Оновлення ліжок\n(р) 2026\nBump aedes до v1.0.0",
+        "zh-cn": "更新 libs\n(c) 2026年\n弹出头到v1.0.0"
+      },
       "0.1.4": {
         "en": "Improve port scan",
         "de": "Port Scan verbessern",
