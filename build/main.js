@@ -22,7 +22,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var utils = __toESM(require("@iobroker/adapter-core"));
-var import_aedes = __toESM(require("aedes"));
 var import_aedes_server_factory = require("aedes-server-factory");
 var import_portscanner = __toESM(require("portscanner"));
 const jsonExplorer = require("iobroker-jsonexplorer");
@@ -51,7 +50,8 @@ class Tinymqttbroker extends utils.Adapter {
       return end;
     }
     try {
-      this.aedes = new import_aedes.default();
+      const { Aedes } = await Promise.resolve().then(() => __toESM(require("aedes")));
+      this.aedes = await Aedes.createBroker();
       this.aedes.id = `iobroker_mqtt_broker_${Math.floor(Math.random() * 1e5 + 1e5)}`;
       this.server = (0, import_aedes_server_factory.createServer)(this.aedes);
       this.server.on("error", (error) => {
