@@ -87,7 +87,7 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.6-alpha.0 (2026-03-16)
+### 0.1.6-alpha.1 (2026-03-16)
 * (HGlab01) Bump aedes to 1.0.1
 
 ### 0.1.5 (2026-03-04)
