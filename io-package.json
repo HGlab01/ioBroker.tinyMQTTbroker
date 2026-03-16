@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.5",
+    "version": "0.1.6-alpha.0",
     "news": {
+      "0.1.6-alpha.0": {
+        "en": "Bump aedes to 1.0.1",
+        "de": "Bump aeds zu 1.0.1",
+        "ru": "Накачиваем 1.0.1",
+        "pt": "Bump aedes até 1.0.1",
+        "nl": "Bump aedes naar 1.0.1",
+        "fr": "Bump aedes à 1.0.1",
+        "it": "Aede di bump a 1.0.1",
+        "es": "Aedes de bomba a 1.0.1",
+        "pl": "Bump aedes do 1.0.1",
+        "uk": "Bump aedes до 1.0.1",
+        "zh-cn": "弹簧至1.0.1"
+      },
       "0.1.5": {
         "en": "Update libs\n(c) 2026\nBump aedes to 1.0.0",
         "de": "Update libs\nc) 2026\nBump aeds zu 1.0.0",
