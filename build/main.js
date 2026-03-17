@@ -43,7 +43,7 @@ class Tinymqttbroker extends utils.Adapter {
     var _a;
     jsonExplorer.sendVersionInfo(version);
     let serverPort = 1883;
-    if (this.config.serverPort) {
+    if (this.config.serverPort != 0) {
       serverPort = this.config.serverPort;
     } else {
       const instanceId = `system.adapter.${this.name}.${this.instance}`;
