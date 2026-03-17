@@ -40,8 +40,29 @@ class Tinymqttbroker extends utils.Adapter {
    * Is called when databases are connected and adapter received configuration.
    */
   async onReady() {
+    var _a;
     jsonExplorer.sendVersionInfo(version);
-    const serverPort = this.config.option1;
+    let serverPort = 1883;
+    if (this.config.serverPort) {
+      serverPort = this.config.serverPort;
+    } else {
+      const instanceId = `system.adapter.${this.name}.${this.instance}`;
+      const objInstance = await this.getForeignObjectAsync(instanceId);
+      if (objInstance == null ? void 0 : objInstance.native) {
+        const serverPortOld = objInstance.native.option1;
+        if (serverPortOld) {
+          this.log.info(`Let's onetime rename config...`);
+          objInstance.native.serverPort = serverPortOld;
+          delete objInstance.native.option1;
+          if ((_a = objInstance == null ? void 0 : objInstance.native) == null ? void 0 : _a.option2) {
+            delete objInstance.native.option2;
+          }
+          await this.setForeignObjectAsync(instanceId, objInstance);
+          serverPort = serverPortOld;
+          this.log.info(`config renamed and saved in instance ${instanceId}`);
+        }
+      }
+    }
     console.log(`Port ${serverPort} is configured`);
     const resultPortScanner = await import_portscanner.default.checkPortStatus(serverPort);
     if (resultPortScanner == "open") {

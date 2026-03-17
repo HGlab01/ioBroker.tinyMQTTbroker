@@ -164,7 +164,7 @@
     }
   },
   "native": {
-    "option1": 1884
+    "serverPort": 1884
   },
   "objects": [],
   "instanceObjects": []

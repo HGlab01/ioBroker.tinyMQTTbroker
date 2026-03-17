@@ -2,7 +2,7 @@
 	"i18n": true,
 	"type": "panel",
 	"items": {
-		"option1": {
+		"serverPort": {
 			"type": "number",
 			"label": "MQTT Port",
 			"min": 1880,
