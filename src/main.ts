@@ -35,7 +35,29 @@ class Tinymqttbroker extends utils.Adapter {
      */
     private async onReady(): Promise<void> {
         jsonExplorer.sendVersionInfo(version);
-        const serverPort: number = this.config.option1;
+        let serverPort = 1883;
+
+        if (this.config.serverPort) {
+            serverPort = this.config.serverPort;
+        } else {
+            const instanceId = `system.adapter.${this.name}.${this.instance}`;
+            const objInstance = await this.getForeignObjectAsync(instanceId);
+            if (objInstance?.native) {
+                const serverPortOld = objInstance.native.option1;
+                if (serverPortOld) {
+                    this.log.info(`Let's onetime rename config...`);
+                    objInstance.native.serverPort = serverPortOld;
+                    delete objInstance.native.option1;
+                    if (objInstance?.native?.option2) {
+                        delete objInstance.native.option2;
+                    }
+                    await this.setForeignObjectAsync(instanceId, objInstance);
+                    serverPort = serverPortOld;
+                    this.log.info(`config renamed and saved in instance ${instanceId}`);
+                }
+            }
+        }
+
         console.log(`Port ${serverPort} is configured`);
 
         const resultPortScanner = await portscanner.checkPortStatus(serverPort);
