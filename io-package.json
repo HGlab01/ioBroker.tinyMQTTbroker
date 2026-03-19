@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "tinymqttbroker",
-    "version": "0.1.6-alpha.3",
+    "version": "0.1.6",
     "news": {
+      "0.1.6": {
+        "en": "Bump aedes to 1.0.1\nRename config items",
+        "de": "Bump aeds zu 1.0.1\nUmname config Items",
+        "ru": "Накачиваем 1.0.1\nПереименовать элементы конфигурации",
+        "pt": "Bump aedes até 1.0.1\nRenomear itens de configuração",
+        "nl": "Bump aedes naar 1.0.1\nConfig-items hernoemen",
+        "fr": "Bump aedes à 1.0.1\nRenommer les éléments de configuration",
+        "it": "Aede di bump a 1.0.1\nRinominare gli elementi di configurazione",
+        "es": "Aedes de bomba a 1.0.1\nRename configuración",
+        "pl": "Bump aedes do 1.0.1\nZmień nazwę elementów konfiguracyjnych",
+        "uk": "Bump aedes до 1.0.1\nRename config елементи",
+        "zh-cn": "弹簧至1.0.1\n重命名配置项目"
+      },
       "0.1.6-alpha.3": {
         "en": "Bump aedes to 1.0.1\nRename config items",
         "de": "Bump aeds zu 1.0.1\nUmname config Items",
@@ -80,19 +93,6 @@
         "pl": "Aktualizuj liby\nc) 2026 r\nBump aedes to v1.0.0",
         "uk": "Оновлення ліжок\n(р) 2026\nBump aedes до v1.0.0",
         "zh-cn": "更新 libs\n(c) 2026年\n弹出头到v1.0.0"
-      },
-      "0.1.4": {
-        "en": "Improve port scan",
-        "de": "Port Scan verbessern",
-        "ru": "Улучшить сканирование портов",
-        "pt": "Melhore a verificação da porta",
-        "nl": "Verbeter poortscan",
-        "fr": "Améliorer l'analyse de port",
-        "it": "Migliora la scansione della porta",
-        "es": "Mejora el escaneo portuario",
-        "pl": "Poprawa skanowania portów",
-        "uk": "Покращення сканування портів",
-        "zh-cn": "改进端口扫描"
       }
     },
     "titleLang": {

@@ -87,7 +87,7 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.6-alpha.3 (2026-03-17)
+### 0.1.6 (2026-03-19)
 * (HGlab01) Bump aedes to 1.0.1
 * (HGlab01) Rename config items
 
